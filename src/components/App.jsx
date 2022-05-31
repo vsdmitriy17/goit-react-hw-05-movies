@@ -13,9 +13,9 @@ export default function App() {
       <AppBar />
 
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
 
-        <Route  exact path="/search" element={<MoviesPage />} />
+        <Route path="search/" element={<MoviesPage />} />
 
         {/* <Route path="/search/:movieId" element={<MovieDetailsPage />} />
 
