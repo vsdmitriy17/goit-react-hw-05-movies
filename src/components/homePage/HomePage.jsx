@@ -29,7 +29,7 @@ export default function HomePage() {
                             <li key={id} className={styles.hPageList_item}>
                                 <Link
                                     className={styles.hPageList_link}
-                                    to={`movies/${id}`}
+                                    to={`search/${id}`}
                                     state={location}
                                 >
                                     {original_title}

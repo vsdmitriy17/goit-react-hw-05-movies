@@ -41,7 +41,7 @@ export default function Movies({ movieName }) {
                                 <Link
                                     className={styles.mPageList_link}
                                     to={`${id}`}
-                                    state={{ pathname: `/movies?query=${movieName}` }}
+                                    state={{ pathname: `/search?query=${movieName}` }}
                                 >
                                     {original_title}
                                 </Link>

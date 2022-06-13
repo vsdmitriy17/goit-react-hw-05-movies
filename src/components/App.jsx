@@ -22,7 +22,7 @@ export default function App() {
 
           <Route path="search" element={<MoviesPage />} />
 
-          <Route path="search/:movieId" element={<MovieDetailsPage />} />
+          <Route path="search/:moviesId" element={<MovieDetailsPage />} />
 
           {/* <Route element={<NotFoundView /> */}
       </Routes>
