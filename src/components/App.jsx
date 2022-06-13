@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import { Suspense } from 'react';
-// import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import AppBar from './appBar/AppBar.jsx';
 import Container from './container/Container.jsx';
@@ -8,8 +7,7 @@ import Loader from './loader/Loader.jsx';
 import HomePage from './homePage/HomePage.jsx';
 import MoviesPage from './moviesPage/MoviesPage.jsx';
 import MovieDetailsPage from './movieDetailsPage/MovieDetailsPage.jsx';
-// import BookDetailsView from './views/BookDetailsView';
-// import NotFoundView from './notFoundView/NotFoundView.jsx';
+import NotFoundView from './notFoundView/NotFoundView.jsx';
 
 export default function App() {
   return (
@@ -22,9 +20,9 @@ export default function App() {
 
           <Route path="search" element={<MoviesPage />} />
 
-          <Route path="search/:moviesId" element={<MovieDetailsPage />} />
+          <Route path="search/:moviesId/*" element={<MovieDetailsPage />} />
 
-          {/* <Route element={<NotFoundView /> */}
+          <Route path='*' element={<NotFoundView />} />
       </Routes>
       </Suspense>
     </Container>

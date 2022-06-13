@@ -6,10 +6,8 @@ const Navigation = () => (
         <ul className={styles.navList}>
             <li className={styles.navItem}>
                 <NavLink
-                    // exact
                     to="/"
                     className={styles.navLink}
-                    // activeClassName={styles.navLink_active}
                 >
                     Home
                 </NavLink>
@@ -19,7 +17,6 @@ const Navigation = () => (
                 <NavLink
                     to="search"
                     className={styles.navLink}
-                    // activeClassName={styles.navLink_active}
                 >
                     Movies
                 </NavLink>

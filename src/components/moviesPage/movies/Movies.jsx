@@ -21,7 +21,7 @@ export default function Movies({ movieName }) {
                 setMovies(results);
                 setSpiner(false);
             } catch (error) {
-                toast.info(`Image with name ${movieName} not found 😢`, {
+                toast.info(`Movie with name ${movieName} not found 😢`, {
                     theme: 'colored',
                 });
                 setSpiner(false);

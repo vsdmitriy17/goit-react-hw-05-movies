@@ -5,11 +5,9 @@
 
 .searchForm_input {
     padding: 10px;
-    /* padding-left: 40px; */
     border-radius: 6px;
     width: 400px;
     border: solid 1px black;
-    /* outline-color: black; */
     font-size: 18px;
     font-weight: 500;
     color: black;

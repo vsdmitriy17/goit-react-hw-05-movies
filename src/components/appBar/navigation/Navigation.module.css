@@ -22,11 +22,6 @@
 }
 
 .navLink.active {
-    /* display: inline-block;
-    text-decoration: none;
-    padding: 12px;
-    font-weight: 500;
-    font-size: 18px; */
     color: rgb(9, 9, 122);
 }
 

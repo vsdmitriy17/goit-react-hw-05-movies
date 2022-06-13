@@ -1,21 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { fetchMoviesById } from '../../movieApiService/movieApiService.js';
-// import iconNotFound from '../images/actor-notfound.png';
-// import Loader from '../loader/Loader.jsx';
-// import { ReactComponent as IconSearch } from '../images/arrowleft-icon.svg';
+import iconNotFound from '../../img/no-pictures.png';
+import Loader from '../loader/Loader.jsx';
 import {
   useParams,
   NavLink,
-  // Route,
-  // Routes,
+  Route,
+  Routes,
   useLocation,
   Link,
 } from 'react-router-dom';
 import Button from '../button/Button.jsx';
 import styles from './MovieDetailsPage.module.css';
-
-// const Cast = lazy(() => import('./Cast'));
-// const Reviews = lazy(() => import('./Reviews'));
+const Cast = lazy(() => import('./cast/Cast.jsx'));
+const Reviews = lazy(() => import('./reviews/Revievs.jsx'));
 
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 
@@ -31,17 +29,16 @@ export default function MovieDetailsPage() {
   return (
     <>
       <Link className={styles.link_back} to={location.state}>
-        <Button name="<= GO BACK" />
+        <Button name="< GO BACK" />
       </Link>
       {movie && (
         <div className={styles.main_wrap}>
           <img
-            // src={
-            //   movie.poster_path
-            //     ? BASE_POSTER_URL + movie.poster_path
-            //     : iconNotFound
-            // }
-            src={BASE_POSTER_URL + movie.poster_path}
+            src={
+              movie.poster_path
+                ? BASE_POSTER_URL + movie.poster_path
+                : iconNotFound
+            }
             alt={movie.original_title}
           />
           <div className={styles.right_container}>
@@ -88,12 +85,12 @@ export default function MovieDetailsPage() {
           </li>
         </ul>
       </div>
-      {/* <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="reviews" element={<Reviews idFilm={moviesId} />}></Route>
-          <Route path="cast" element={<Cast idFilm={moviesId} />}></Route>
+          <Route path='reviews' element={<Reviews idFilm={moviesId} />}></Route>
+          <Route path='cast' element={<Cast idFilm={moviesId} />}></Route>
         </Routes>
-      </Suspense> */}
+      </Suspense>
     </>
   );
 }
