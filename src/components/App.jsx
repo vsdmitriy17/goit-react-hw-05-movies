@@ -1,9 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
+import { Suspense } from 'react';
+// import { lazy } from 'react';
+import { ToastContainer } from 'react-toastify';
 import AppBar from './appBar/AppBar.jsx';
 import Container from './container/Container.jsx';
+import Loader from './loader/Loader.jsx';
 import HomePage from './homePage/HomePage.jsx';
 import MoviesPage from './moviesPage/MoviesPage.jsx';
-// import MovieDetailsPage from './movieDetailsPage/MovieDetailsPage.jsx';
+import MovieDetailsPage from './movieDetailsPage/MovieDetailsPage.jsx';
 // import BookDetailsView from './views/BookDetailsView';
 // import NotFoundView from './notFoundView/NotFoundView.jsx';
 
@@ -11,16 +15,18 @@ export default function App() {
   return (
     <Container>
       <AppBar />
+      <ToastContainer autoClose={3000} pauseOnHover={false} />
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+          <Route path="search" element={<MoviesPage />} />
 
-        <Route path="search/" element={<MoviesPage />} />
+          <Route path="search/:movieId" element={<MovieDetailsPage />} />
 
-        {/* <Route path="/search/:movieId" element={<MovieDetailsPage />} />
-
-        <Route element={<NotFoundView />} /> */}
+          {/* <Route element={<NotFoundView /> */}
       </Routes>
+      </Suspense>
     </Container>
   );
 }
